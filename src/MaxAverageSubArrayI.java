@@ -22,15 +22,11 @@ public class MaxAverageSubArrayI {
         for (int i = 0; i < k; i++) {
             currentSum += numbers[i];
         }
-        System.out.println("total sum " + currentSum);
         double maxSumAverage = (double) currentSum /k;
-        System.out.println("maxSumAverage " + maxSumAverage);
         for (int i = k; i < numbers.length; i++) {
             currentSum -= numbers[i-k];
             currentSum += numbers[i];
-            System.out.println("currentSum " + currentSum);
             maxSumAverage = Math.max(currentSum/k, maxSumAverage);
-            System.out.println("maxSumAverage " + maxSumAverage);
         }
         return maxSumAverage;
     }

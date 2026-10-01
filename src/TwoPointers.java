@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TwoPointers {
     public static void main(String[] args) {
@@ -19,5 +21,10 @@ public class TwoPointers {
             }
         }
         System.out.println(Arrays.toString(numbers));
+        Arrays.stream(numbers).boxed()
+                .collect(Collectors.groupingBy(num -> num, Collectors.counting()))
+                .keySet()
+//                .sorted(Integer::compareTo)
+                .forEach(System.out::println);
     }
 }
